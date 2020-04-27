@@ -5,7 +5,7 @@ const NuevoProyecto = () => {
 
     // Obtener el state del formulario
     const proyectosContext = useContext(proyectoContext);
-    const {formulario, mostrarFormulario} = proyectosContext;
+    const {formulario, errorFormulario, mostrarFormulario, agregarProyecto, mostrarError} = proyectosContext;
 
     const [proyecto, setProyecto] = useState({
         nombre:''
@@ -21,6 +21,19 @@ const NuevoProyecto = () => {
 
     const onSubmit = e =>{
         e.preventDefault();
+
+        if(nombre === ''){
+            mostrarError();
+            return;
+        }
+
+        // Agregar al state
+        agregarProyecto(proyecto);
+
+        // Reinicair form local
+        setProyecto({
+            nombre: ''
+        });
 
     }
 
@@ -55,6 +68,12 @@ const NuevoProyecto = () => {
                         />
                     </form>
                 )
+                : null
+            }
+            {errorFormulario
+                ? <p className='mensaje error'>
+                    El nombre del proyecto es obligatorio
+                    </p>
                 : null
             }
          </Fragment>
