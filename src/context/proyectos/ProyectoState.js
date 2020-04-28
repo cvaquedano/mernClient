@@ -74,7 +74,6 @@ const ProyectoState = props => {
             type: ELIMINAR_PROYECTO,
             payload: proyectoId
         });
-        
     };
 
 
