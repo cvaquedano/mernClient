@@ -2,7 +2,6 @@ import React, {useContext, useState, useEffect} from 'react';
 
 import proyectoContext from '../../context/proyectos/proyectoContext';
 import tareasContext from '../../context/tareas/tareaContext';
-import {v4 as uuidv4} from 'uuid';
 
 const FormTareas = () => {
 
@@ -15,7 +14,6 @@ const FormTareas = () => {
     useEffect(() => {
         if(tareaActual !== null){
             setTarea({...tareaActual});
-            console.log(tarea);
         } else {
             setTarea({
                 nombre:''
