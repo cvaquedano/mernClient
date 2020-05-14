@@ -1,17 +1,28 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AlertaContext from '../../context/alertas/alertaContext';
 import AuthContext from '../../context/autentificacion/authContext';
 
 
-const NuevaCuenta = () => {
+const NuevaCuenta = (props) => {
 
     const alertaContext = useContext(AlertaContext);
     const {alerta, mostrarAlerta} = alertaContext;
 
     const authContext = useContext(AuthContext);
-    const {token, registarUsuario} = authContext;
+    const {autenticado, mensaje, registarUsuario} = authContext;
 
+    useEffect(()=>{
+
+        if(autenticado){
+            props.history.push('/proyectos');
+        }
+        if(mensaje){
+            console.log('si entro mensaje');
+            mostrarAlerta(mensaje.msg, mensaje.categoria);
+        }
+
+    },[mensaje,autenticado,props.history]);
 
     const [usuario, setUsuario]=useState({
         email:'',
