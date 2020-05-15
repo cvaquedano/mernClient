@@ -18,7 +18,6 @@ const NuevaCuenta = (props) => {
             props.history.push('/proyectos');
         }
         if(mensaje){
-            console.log('si entro mensaje');
             mostrarAlerta(mensaje.msg, mensaje.categoria);
         }
 
