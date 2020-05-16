@@ -36,13 +36,12 @@ const FormTareas = () => {
         }
 
         if(tareaActual === null){
-            tarea.proyectoId = proyectoActual.id;
-            tarea.estado = false;
+            tarea.proyecto = proyectoActual._id;
             agregarTareas(tarea);
         } else {
             salvarTarea(tarea);
         }
-        obtenerTareas(proyectoActual.id);
+        obtenerTareas(proyectoActual._id);
 
         setTarea({
             nombre:''

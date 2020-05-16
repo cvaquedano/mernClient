@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import {v4 as uuidv4} from 'uuid';
+// import {v4 as uuidv4} from 'uuid';
 import proyectoReducer from "./proyectoReducer";
 import proyectoContext from "./proyectoContext";
 import { FORMULARIO_PROYECTO,
@@ -11,13 +11,9 @@ import { FORMULARIO_PROYECTO,
          PROYECTO_ERROR,
 
          } from "../../types";
-
-
-         import clienteAxios from '../../config/axios';
+import clienteAxios from '../../config/axios';
 
 const ProyectoState = props => {
-
- 
 
     const initialState = {
          proyectos : [],

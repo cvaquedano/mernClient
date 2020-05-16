@@ -1,6 +1,5 @@
 import React, { useReducer } from 'react';
-import AuthContext from './authContext';
-import AuthReducer from './authReducer';
+
 import {
     REGISTRO_EXITOSO,
     REGISTRO_ERROR,
@@ -55,7 +54,7 @@ const AuthState = props  => {
         }
         try {
             const respuesta = await clienteAxios.get('/api/auth');
-            
+
             dispatch({
                 type: OBTENER_USUARIO,
                 payload: respuesta.data.usuario
